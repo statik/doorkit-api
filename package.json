@@ -6,6 +6,7 @@
     "start": "node server"
   },
   "dependencies": {
-    "restify": "*"
+    "restify": "*",
+    "rpi-gpio": "git://github.com/statik/rpi-gpio.js.git"
   }
 }
