@@ -8,6 +8,7 @@ var server = restify.createServer({
 server.pre(restify.pre.userAgentConnection());
 server.use(restify.queryParser());
 server.use(restify.bodyParser({ mapParams: true }));
+server.use(restify.jsonp());
 // parse out the auth header into req.username, req.authorization.basic.password
 // later this should be upgraded to something more sophisticated
 server.use(restify.authorizationParser());
@@ -28,7 +29,7 @@ var LATCH = '/latch/:command';
 server.get({path: LATCH, version: '1.0.0'}, openLatchV1);
 
 server.get({path: '/hello/:name', name: 'GetFoo'}, function respond(req, res, next) {
-    res.json({
+    res.send({
         hello: req.params.name
     });
     return next();
