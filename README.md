@@ -18,3 +18,12 @@ https://npmjs.org/package/rpi-gpio
 Also, update the README for rpi-gpio to reference the gpio-admin project
 rather than running as root.
 https://github.com/quick2wire/quick2wire-gpio-admin
+
+OK, we really do need SPI to communicate with the PiFace. The PiFace maps an input state
+change event back to the RPI GPIO pin 22. I think the right approach is probably to
+monitor GPIO 22, when it fires then have a callback read from the PiFace via SPI.
+
+The latest piface example code is using epoll, read through the data flow for that.
+
+For monitoring an fd for a change in node.js, looks like I need to write a c extension modul
+and use uv_poll.
