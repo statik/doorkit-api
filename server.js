@@ -26,7 +26,7 @@ function openLatchV1(req, res, next) {
     setTimeout(function () {
         if (piface.read(0)) {
             piface.write(0,0);
-        }, 10 * 1000); // reset the latch after 10 seconds
+        }}, 10 * 1000); // reset the latch after 10 seconds
     piface.write(1, 0);
     res.json({
       message: 'Latch opened',

@@ -1,10 +1,15 @@
 doorkit-api
 ===========
+Bringing the web to your front door.
+
+[![hamburger diagram](https://github.com/statik/doorkit-api/raw/master/docs/overview.jpg)](#features)
+
+## Notes
 
 We require caf_piface but that only installs on a linux system with spi headers available
 (and appropriate kernel drivers enabled)
 
-TODO: figure out whether SPI is really a good idea or not.
+TODO: figure out whether SPI is really a good idea or not, perhaps switch to IPC.
 
 It seems like this ruby code is some of the cleanest and actually selects
 the edge trigger to be truly event driven rather than polling:
